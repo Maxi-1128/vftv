@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Announcements | VFMS</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Quicksand:wght@400;600&display=swap');
+
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+h2 {
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #003366;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #003366;
+    color: #fff;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e2cf85;
+    color: #003366;
+}
+
+.hidden { display: none; }
+
+.success, .error {
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.success { color: green; }
+.error { color: red; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>VFMS Announcements Submission</h2>
+
+  <!-- LOGIN -->
+  <div id="login-form">
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" placeholder="Password">
+    <button id="login-button">Login</button>
+    <p id="login-error" class="error hidden">Incorrect password.</p>
+  </div>
+
+<!-- SUBMISSION FORM -->
+<div id="submit-form" class="hidden">
+  <label for="announcement-file">Upload a File (image, PDF, etc.):</label>
+  <input type="file" id="announcement-file">
+
+  <label for="video-link">OR Enter a Video Link (YouTube, Vimeo, etc.):</label>
+  <input type="text" id="video-link" placeholder="https://">
+
+  <button id="submit-button">Submit Announcement</button>
+  <p id="submit-success" class="success hidden">Announcement submitted!</p>
+
+  <!-- Only show after submit -->
+  <button id="to-today" class="hidden">Go to Today's Video</button>
+</div>
+
+
+<script src="script.js"></script>
+<script>
+document.getElementById('to-today').addEventListener('click', ()=>{
+    window.location.href = 'today.html';
+});
+</script>
+
+</body>
+</html>

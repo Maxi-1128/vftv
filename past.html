@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VFTV - Past Videos</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .delete-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .delete-btn:hover { background-color: #ff0000; }
+</style>
+</head>
+<body>
+<h1>Past Videos</h1>
+<div id="past-container"></div>
+
+<div class="delete-btn" id="delete-btn">
+  🗑️
+</div>
+
+<script>
+const pastContainer = document.getElementById('past-container');
+const pastVideos = JSON.parse(localStorage.getItem('pastVideos') || '[]');
+
+if(pastVideos.length){
+  pastContainer.innerHTML = pastVideos.map(v => 
+    `<video src="${v.src}" controls width="320" style="margin:10px;"></video>`
+  ).join('');
+} else {
+  pastContainer.innerHTML = "<p>No past videos.</p>";
+}
+
+// Delete button
+document.getElementById('delete-btn').addEventListener('click', ()=>{
+  const password = prompt("Enter password to delete all videos:");
+  if(password === "vfms123"){  // <-- replace with your password
+    localStorage.removeItem('pastVideos');
+    location.reload();
+  } else {
+    alert("Wrong password!");
+  }
+});
+</script>
+</body>
+</html>

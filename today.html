@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VFTV - Today</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Quicksand:wght@400;600&display=swap');
+
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Varela Round', sans-serif;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+#video-container {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.video-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.video-card iframe,
+.video-card video {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.video-card h3 {
+    font-size: 1.3em;
+    color: #003366;
+    margin-bottom: 8px;
+}
+
+.video-card p {
+    color: #555;
+    font-size: 0.95em;
+}
+
+button {
+    padding: 12px 20px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background-color: #003366;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e2cf85;
+    color: #003366;
+}
+</style>
+</head>
+<body>
+
+<h1>Today's Video</h1>
+
+<div id="video-container"></div>
+
+<button onclick="window.location.href='submit.html'">Submit New Announcement</button>
+<button onclick="window.location.href='index.html'">Return to HomePage</button>
+
+<script src="script.js"></script>
+<script>
+displayTodayVideo();
+</script>
+
+</body>
+</html>
